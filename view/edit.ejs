@@ -1,0 +1,28 @@
+<% include partials/header%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/editar/<%=tar._id %>" method="POST">
+                        <div class="form-group">
+                            <input type="text" name="titulo" value="<%=tar.titulo%>" class="form-control">
+        
+                        </div>
+                        <div class="form-group">
+                                <textarea name="descripcion" cols="30"  class="form-control"><%=tar.descripcion%></textarea>
+        
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Cambiar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <% include partials/footer%>

@@ -1,0 +1,55 @@
+<% include partials/header%>
+ 
+    <div class="container">
+            <div class="row">
+                
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/add" method="POST">
+                                <div class="form-group">
+                                    <input type="text" name="titulo" placeholder="Ingrese titulo" class="form-control">
+
+                                </div>
+                                <div class="form-group">
+                                        <textarea name="descripcion" cols="30" class="form-control" placeholder="Ingrese una descripcion"></textarea>
+    
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Agregar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <th>Nº</th>
+                            <th>Titulo</th>
+                            <th>Descripcion</th>
+                            <th>Acciónes</th>
+                        </thead>
+                        <tbody>
+                            <%for(var i=0;i < tar.length;i++){%>
+                                <tr>
+                                    <td> <%=i+1%></td>
+                                    <td> <%=tar[i].titulo%></td>
+                                    <td> <%=tar[i].descripcion%></td>
+                                    <td>
+                                        <a href="/actualizar/<%= tar[i].id %>" 
+                                            class="btn <%= tar[i].estado ? 'btn-success' : 'btn-dark'%>">heho</a>
+                                        <a href="/delete/<%= tar[i]._id %>" class="btn btn-danger">eliminar</a>
+                                        <a href="/editar/<%= tar[i]._id %>" class="btn btn-info">actualizar</a>
+                                    </td>
+                                </tr>
+                                <%}%>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+            </div>
+    </div>
+    <% include partials/footer%>
